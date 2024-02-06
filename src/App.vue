@@ -1,20 +1,14 @@
 <template>
-  <div class="box">
-    <h1>大标题</h1>
-    <h1>新增一个标题</h1>
+  <div>
+    <h1>测试</h1>
   </div>
 </template>
 
-<script setup lang="ts">
-const str = 'aaa'
-</script>
+<script setup lang="ts"></script>
 <style scoped lang="scss">
-.box {
-  width: 600px;
-  height: 400px;
-  background: black;
+div {
   h1 {
-    color: white;
+    color: red;
   }
 }
 </style>
