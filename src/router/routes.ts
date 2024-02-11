@@ -15,9 +15,9 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
     name: 'layout',
     component: () => import('@/layout/index.vue'),
     meta: {
-      title: 'layout',
+      title: '',
       hidden: false,
-      icon: 'Avatar'
+      icon: ''
     },
     redirect: '/home',
     children: [
@@ -59,9 +59,9 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
     component: () => import('@/layout/index.vue'),
     meta: {
       title: '权限管理',
-
       icon: 'Lock'
     },
+    redirect: '/acl/user',
     children: [
       {
         path: '/acl/user',
@@ -69,7 +69,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/acl/user/index.vue'),
         meta: {
           title: '用户管理',
-
           icon: 'User'
         }
       },
@@ -79,7 +78,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/acl/role/index.vue'),
         meta: {
           title: '角色管理',
-
           icon: 'UserFilled'
         }
       },
@@ -89,7 +87,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/acl/permission/index.vue'),
         meta: {
           title: '菜单管理',
-
           icon: 'Monitor'
         }
       }
@@ -104,6 +101,7 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
       hidden: false,
       icon: 'Goods'
     },
+    redirect: '/product/trademark',
     children: [
       {
         path: '/product/trademark',
@@ -111,7 +109,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/product/trademark/index.vue'),
         meta: {
           title: '品牌管理',
-
           icon: 'ShoppingCartFull'
         }
       },
@@ -121,7 +118,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/product/attr/index.vue'),
         meta: {
           title: '属性管理',
-
           icon: 'ChromeFilled'
         }
       },
@@ -131,7 +127,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/product/spu/index.vue'),
         meta: {
           title: 'spu管理',
-
           icon: 'Calendar'
         }
       },
@@ -141,7 +136,6 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         component: () => import('@/views/product/sku/index.vue'),
         meta: {
           title: 'sku管理',
-
           icon: 'Orange'
         }
       }

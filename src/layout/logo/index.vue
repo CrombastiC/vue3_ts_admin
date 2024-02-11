@@ -9,6 +9,11 @@
 //引入设置标题与logo的配置
 import setting from '@/setting'
 </script>
+<script lang="ts">
+export default {
+  name: 'Logo'
+}
+</script>
 <style scoped lang="scss">
 .logo {
   display: flex;
@@ -16,7 +21,7 @@ import setting from '@/setting'
   height: $base-menu-logo-height;
   color: white;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   img {
     width: 40px;
     height: 40px;
