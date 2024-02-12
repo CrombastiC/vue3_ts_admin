@@ -41,17 +41,20 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
 import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ElNotification } from 'element-plus'
 //引入获取时间的工具方法
 import { getTime } from '@/utils/time'
 //引入用户相关的仓库
 import useUserStore from '@/store/modules/user'
+9
 let userStore = useUserStore()
 //获取el-form组件
 let loginForms = ref()
 //获取路由
 let $router = useRouter()
+//获取路由对象
+let $route = useRoute()
 //定义变量控制按钮加载
 let loading = ref(false)
 //收集账号与密码
@@ -70,7 +73,10 @@ const login = async () => {
     //可以写.then
     await userStore.userLogin(loginForm)
     //登录成功后跳转到首页
-    $router.push('/')
+    //判断登录的时候是否有query参数，有的话就跳转到query参数的页面，没有的话就跳转到首页
+    let redirect = $route.query.redirect as string
+
+    $router.push({ path: redirect || '/' })
     //登录成功后提示
     ElNotification({
       title: `HI,${loginForm.username}, ${getTime()}好`,

@@ -5,7 +5,8 @@ import { defineStore } from 'pinia'
 const userLayOutSettingStore = defineStore('SettingStore', {
   state: () => {
     return {
-      fold: false //侧边栏是否折叠
+      fold: false, //侧边栏是否折叠
+      refsh: false //是否刷新
     }
   }
 })
