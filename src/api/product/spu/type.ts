@@ -6,12 +6,13 @@ export interface ResponseData {
 
 //SPU数据的ts类型
 export interface SpuData {
+  category3Id: string | number
   id?: number
   spuName: string
+  tmId: number | string
   description: string
-  category3Id: number | string
-  tmId: number
-  spuSaleAttrList: null
+  spuImageList: null | SpuImg[]
+  spuSaleAttrList: null | SaleAttr[]
 }
 //数组：都是已有的SPU数据类型
 export type Records = SpuData[]
