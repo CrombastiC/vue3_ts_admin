@@ -78,7 +78,7 @@
           <el-table-column label="操作">
             <template v-slot="{ row, index }">
               <el-button
-                type="primary"
+                type="danger"
                 size="small"
                 icon="Delete"
                 @click="attrParams.attrValueList.splice(index, 1)"
