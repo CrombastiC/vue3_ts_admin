@@ -20,7 +20,7 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  // background-image: linear-gradient(135deg, #a1c4fd, #c2e9fb);
   .tabbar_left {
     display: flex;
     align-items: center;

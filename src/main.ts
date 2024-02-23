@@ -11,6 +11,8 @@ import App from '@/App.vue'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore忽略当前文件ts类型的检测否则有红色提示(打包会失败)
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+//暗黑模式css引入
+import 'element-plus/theme-chalk/dark/css-vars.css'
 //引入路由进行注册
 import router from './router'
 //引入pinia

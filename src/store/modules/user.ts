@@ -53,7 +53,7 @@ const useUserStore = defineStore('User', {
     //退出登录
     async userLogout() {
       const result: any = await reqLogout()
-      console.log(result)
+
       if (result.code == 200) {
         //目前没有mock退出登录的接口
         this.token = ''
