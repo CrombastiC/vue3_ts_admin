@@ -197,7 +197,7 @@ let keyword = ref<string>('')
 //存储全部已有的职位
 let allRole = ref<AllRole>([])
 //当前用户已有的职位
-let userRole = ref<AllRole>([])
+let userRole = ref<any>([])
 //获取模板setting仓库
 let settingStore = useLayOutSettingStore()
 //组件挂载完毕

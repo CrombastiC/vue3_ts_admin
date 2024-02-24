@@ -1,6 +1,6 @@
 //属性相关的API
 import request from '@/utils/request'
-import type { CategoryResponseData, AttrResponseData } from './type'
+import type { CategoryResponseData, AttrResponseData, Attr } from './type'
 enum API {
   //获取一级分类接口
   C1_URL = '/admin/product/getCategory1',

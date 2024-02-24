@@ -154,7 +154,7 @@ const cancel = () => {
 //存储已有的SPU数组
 let AllTradeMarks = ref<Trademark[]>([])
 //商品图片
-let imgList = ref<SpuImg[]>([])
+let imgList = ref<any>([])
 //已有的SPU销售属性
 let saleAttr = ref<SaleAttr[]>([])
 //全部SPU销售属性
@@ -164,7 +164,7 @@ let dialogVisible = ref<boolean>(false)
 //存储对话框中的图片地址
 let dialogImageUrl = ref<string>('')
 //存储已有的SPU对象
-let SpuParams = ref<SpuData>({
+let SpuParams = ref<any>({
   category3Id: '', //收集三级分类的ID
   spuName: '', //SPU的名字
   description: '', //SPU的描述
