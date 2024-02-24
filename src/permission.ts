@@ -1,44 +1,50 @@
-//路由鉴权
+//路由鉴权:鉴权,项目当中路由能不能被的权限的设置(某一个路由什么条件下可以访问、什么条件下不可以访问)
 import router from '@/router'
 import setting from './setting'
+//引入进度条插件
 import nprogress from 'nprogress'
 //引入进度条样式
 import 'nprogress/nprogress.css'
-//关闭进度条的spinner
 nprogress.configure({ showSpinner: false })
-//获取用户相关的小仓库的token数据，判断用户是否登录成功
+//获取用户相关的小仓库内部token数据,去判断用户是否登录成功
 import useUserStore from './store/modules/user'
 import pinia from './store'
 const userStore = useUserStore(pinia)
-
-//全局守卫：项目中任意一个路由跳转都会触发
+//全局守卫:项目当中任意路由切换都会触发的钩子
 //全局前置守卫
 router.beforeEach(async (to: any, from: any, next: any) => {
-  //访问路由之前的守卫 to:即将要进入的目标路由对象 from:当前导航正要离开的路由 next:函数，必须调用该函数来resolve钩子
-  document.title = `${setting.title}-${to.meta.title}`
+  document.title = `${setting.title} - ${to.meta.title}`
+  //to:你将要访问那个路由
+  //from:你从来个路由而来
+  //next:路由的放行函数
   nprogress.start()
-  //获取用户的token
+  //获取token,去判断用户登录、还是未登录
   const token = userStore.token
   //获取用户名字
   const username = userStore.username
+  //用户登录判断
   if (token) {
-    //登录成功，访问login，不能访问，指向首页
+    //登录成功,访问login,不能访问,指向首页
     if (to.path == '/login') {
       next({ path: '/' })
     } else {
-      //登录成功访问其他正常
+      //登录成功访问其余六个路由(登录排除)
       //有用户信息
       if (username) {
         //放行
         next()
       } else {
-        //如果没有用户信息，在守卫中获取用户信息
+        //如果没有用户信息,在守卫这里发请求获取到了用户信息再放行
         try {
+          //获取用户信息
           await userStore.getUserInfo()
-          next()
+          //放行
+          //万一:刷新的时候是异步路由,有可能获取到用户信息、异步路由还没有加载完毕,出现空白的效果
+          next({ ...to, replace: true })
         } catch (error) {
-          //token失效||手动修改本地存储
-          //退出登录
+          //token过期:获取不到用户信息了
+          //用户手动修改本地存储token
+          //退出登录->用户相关的数据清空
           await userStore.userLogout()
           next({ path: '/login', query: { redirect: to.path } })
         }

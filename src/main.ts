@@ -29,5 +29,8 @@ app.use(globalComponents)
 app.use(router)
 //引入路由鉴权
 import '@/permission'
+//引入自定义指令
+import { isHasButton } from '@/directive/has'
+isHasButton(app)
 //挂载
 app.mount('#app')

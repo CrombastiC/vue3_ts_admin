@@ -52,7 +52,11 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
       hidden: false,
       icon: 'Platform'
     }
-  },
+  }
+]
+
+//异步路由
+export const asyncRoute = [
   {
     path: '/acl',
     name: 'Acl',
@@ -140,7 +144,11 @@ export const constantRoute: (typeof RouteRecordRaw)[] = [
         }
       }
     ]
-  },
+  }
+]
+
+//任意路由
+export const anyRoute = [
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404',
